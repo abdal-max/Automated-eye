@@ -1,0 +1,183 @@
+<section id="contact" class="contact-section section-padding">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <div class="contact-intro">
+          <span class="brand-eye-img brand-eye-img--sm mb-3 d-inline-block" aria-hidden="true"></span>
+          <h2 class="contact-title">نرافقك من الفكرة إلى التشغيل</h2>
+          <p class="contact-text">
+            نؤمن بالشراكات الطويلة، لذلك خصصنا فريق استشاري للرد على استفساراتك ووضع تصور أولي لحل الأمان المناسب لمشروعك.
+          </p>
+
+          <div class="contact-highlights">
+            <div class="contact-highlight">
+              <i class="fas fa-headset"></i>
+              <div>
+                <h6>استشارة مجانية</h6>
+                <p>60 دقيقة مع خبير أمني لتقييم احتياجاتك.</p>
+              </div>
+            </div>
+            <div class="contact-highlight">
+              <i class="fas fa-clock"></i>
+              <div>
+                <h6>رد خلال 3 ساعات</h6>
+                <p>فريق الدعم متاح من السبت إلى الخميس.</p>
+              </div>
+            </div>
+            <div class="contact-highlight">
+              <i class="fas fa-message"></i>
+              <div>
+                <h6>خدمة واتساب</h6>
+                <p>متابعة فورية وتنسيق ميداني سريع.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-cards row g-3">
+            <div class="col-sm-6">
+              <div class="contact-card">
+                <i class="fas fa-phone"></i>
+                <h5>الهاتف</h5>
+                <p>+966 575002034</p>
+                <a href="tel:+966575002034" class="btn btn-outline-light btn-sm">
+                  <i class="fas fa-phone me-2"></i>
+                  اتصل الآن
+                </a>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="contact-card">
+                <i class="fas fa-envelope"></i>
+                <h5>البريد</h5>
+                <p>Automated eye @gmail.com</p>
+                <a href="mailto:info@alaien.com" class="btn btn-outline-light btn-sm">
+                  <i class="fas fa-paper-plane me-2"></i>
+                  أرسل رسالة
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="contact-card-form">
+          <div class="contact-card-form__header">
+            <div>
+              <h3>دعنا نتواصل معك</h3>
+              <p>املأ البيانات التالية وسيعود إليك فريقنا خلال ساعات العمل.</p>
+            </div>
+            <div class="contact-card-form__badge">
+              <i class="fas fa-bolt"></i>
+              <span>استجابة سريعة</span>
+            </div>
+          </div>
+
+          <form (ngSubmit)="onSubmit()" #contactForm="ngForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="name" class="form-label">الاسم الكامل</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="name"
+                  [(ngModel)]="contact.name"
+                  name="name"
+                  required
+                  #name="ngModel"
+                  [class.is-invalid]="name.invalid && name.touched"
+                  placeholder="أكتب اسمك"
+                >
+                <div class="invalid-feedback" *ngIf="name.invalid && name.touched">
+                  الاسم مطلوب
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <label for="email" class="form-label">البريد الإلكتروني</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  id="email"
+                  [(ngModel)]="contact.email"
+                  name="email"
+                  required
+                  email
+                  #email="ngModel"
+                  [class.is-invalid]="email.invalid && email.touched"
+                  placeholder="example@company.com"
+                >
+                <div class="invalid-feedback" *ngIf="email.invalid && email.touched">
+                  يرجى إدخال بريد إلكتروني صحيح
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="phone" class="form-label">رقم الهاتف (واتساب)</label>
+                <input
+                  type="tel"
+                  class="form-control"
+                  id="phone"
+                  [(ngModel)]="contact.phone"
+                  name="phone"
+                  required
+                  #phone="ngModel"
+                  [class.is-invalid]="phone.invalid && phone.touched"
+                  placeholder="05XXXXXXXX"
+                >
+                <div class="invalid-feedback" *ngIf="phone.invalid && phone.touched">
+                  رقم الهاتف مطلوب
+                </div>
+              </div>
+
+              <div class="col-12">
+                <label for="message" class="form-label">وصف المشروع أو الاستفسار</label>
+                <textarea
+                  class="form-control"
+                  id="message"
+                  rows="5"
+                  [(ngModel)]="contact.message"
+                  name="message"
+                  required
+                  #message="ngModel"
+                  [class.is-invalid]="message.invalid && message.touched"
+                  placeholder="أخبرنا عن مشروعك، عدد المواقع، نوع الأنظمة المطلوبة..."
+                ></textarea>
+                <div class="invalid-feedback" *ngIf="message.invalid && message.touched">
+                  الرسالة مطلوبة
+                </div>
+              </div>
+            </div>
+
+            <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+              <i class="fas fa-exclamation-triangle me-2"></i>
+              {{ errorMessage }}
+            </div>
+
+            <div *ngIf="successMessage" class="alert alert-success mt-3" role="alert">
+              <i class="fas fa-check-circle me-2"></i>
+              {{ successMessage }}
+            </div>
+
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-md-between gap-3 mt-4">
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg px-4"
+                [disabled]="isSubmitting || contactForm.invalid"
+              >
+                <span *ngIf="isSubmitting" class="spinner-border spinner-border-sm me-2" role="status"></span>
+                <i class="fas fa-paper-plane me-2" *ngIf="!isSubmitting"></i>
+                {{ isSubmitting ? 'جاري الإرسال...' : 'طلب استشارة' }}
+              </button>
+
+              <div class="contact-form-note">
+                <i class="fas fa-lock"></i>
+                <span>نحافظ على سرية بياناتك ولا نشاركها مع أي جهة.</span>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,32 @@
+<!-- Language Bar Component - Professional language selection with logo -->
+<div class="language-bar" role="banner" aria-label="Language selection and branding">
+  <div class="container">
+    <div class="language-bar-content">
+      <!-- Language Selection Options -->
+      <div class="language-options" role="group" aria-label="Language options">
+        <button
+          *ngFor="let lang of languages; trackBy: trackByFn"
+          class="language-btn"
+          [class.active]="currentLanguage === lang.code"
+          (click)="setLanguage(lang.code)"
+          [attr.aria-label]="'Switch to ' + lang.name"
+          [attr.aria-pressed]="currentLanguage === lang.code"
+          type="button"
+        >
+          <span class="flag" aria-hidden="true">{{ lang.flag }}</span>
+          <span class="lang-name">{{ lang.name }}</span>
+        </button>
+      </div>
+
+      <!-- Company Logo -->
+      <div class="language-bar-logo">
+        <img
+          src="../../assets/images/logo/1.jpeg"
+          alt="العين المؤتمتة - Company Logo"
+          class="logo-img"
+          loading="lazy"
+        >
+      </div>
+    </div>
+  </div>
+</div>

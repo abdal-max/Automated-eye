@@ -1,0 +1,16 @@
+<div class="services-bar">
+  <div class="services-container">
+    <div class="category-header">
+      <span class="category-name">{{ currentCategory.category }}</span>
+    </div>
+    <div class="services-track" [style.animation-duration]="animationDuration">
+      <div class="service-item" *ngFor="let service of currentCategory.services">
+        <span class="service-text">{{ service }}</span>
+      </div>
+      <!-- Duplicate for seamless loop -->
+      <div class="service-item" *ngFor="let service of currentCategory.services">
+        <span class="service-text">{{ service }}</span>
+      </div>
+    </div>
+  </div>
+</div>

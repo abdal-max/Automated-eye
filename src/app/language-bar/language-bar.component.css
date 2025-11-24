@@ -1,0 +1,155 @@
+/**
+ * Language Bar Component Styles
+ * Professional language selection bar with logo integration
+ */
+
+.language-bar {
+  background: linear-gradient(135deg, #1a2332 0%, #2a3441 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.language-bar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  min-height: 60px;
+}
+
+.language-options {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.language-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 25px;
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.language-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.language-btn.active {
+  background: linear-gradient(135deg, #4f8cff, #7df5d4);
+  border-color: #4f8cff;
+  color: #ffffff;
+  box-shadow: 0 4px 15px rgba(79, 140, 255, 0.3);
+}
+
+.flag {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.lang-name {
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+
+.language-bar-logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  height: 40px;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  transition: all 0.3s ease;
+}
+
+.logo-img:hover {
+  filter: brightness(0) invert(1) brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* ===== استجابة الشاشات الصغيرة ===== */
+@media (max-width: 768px) {
+  .language-bar-content {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .language-options {
+    order: 2;
+  }
+
+  .language-bar-logo {
+    order: 1;
+  }
+
+  .language-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+  }
+
+  .lang-name {
+    display: none;
+  }
+
+  .flag {
+    font-size: 1.4rem;
+  }
+
+  .logo-img {
+    height: 35px;
+    max-width: 100px;
+  }
+}
+
+/* ===== استجابة الشاشات المتوسطة ===== */
+@media (max-width: 992px) {
+  .language-bar-content {
+    padding: 0.5rem 0;
+  }
+
+  .logo-img {
+    height: 35px;
+    max-width: 100px;
+  }
+}
+
+/* ===== تأثيرات إضافية ===== */
+.language-bar::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, transparent, rgba(79, 140, 255, 0.05), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.language-bar:hover::before {
+  opacity: 1;
+}
+
+/* ===== الوضع الداكن ===== */
+@media (prefers-color-scheme: dark) {
+  .language-bar {
+    background: linear-gradient(135deg, #0f1419 0%, #1a2332 100%);
+  }
+}

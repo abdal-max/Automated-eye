@@ -1,0 +1,208 @@
+.contact-section {
+  background: linear-gradient(135deg, rgba(5, 16, 34, 0.95), rgba(9, 26, 56, 0.98));
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 15% 20%, rgba(92, 168, 255, 0.2), transparent 65%),
+    radial-gradient(circle at 85% 80%, rgba(0, 212, 255, 0.18), transparent 70%);
+  pointer-events: none;
+}
+
+.contact-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact-intro {
+  color: rgba(230, 241, 255, 0.92);
+}
+
+.contact-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  line-height: 1.45;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.contact-text {
+  color: rgba(210, 225, 247, 0.75);
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.contact-highlights {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-highlight {
+  display: flex;
+  gap: 1rem;
+  background: rgba(12, 28, 58, 0.85);
+  padding: 1rem 1.25rem;
+  border-radius: 14px;
+  border: 1px solid rgba(92, 168, 255, 0.18);
+}
+
+.contact-highlight i {
+  font-size: 1.35rem;
+  color: rgba(92, 168, 255, 0.95);
+  margin-top: 0.2rem;
+}
+
+.contact-highlight h6 {
+  color: #ffffff;
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+}
+
+.contact-highlight p {
+  color: rgba(200, 220, 245, 0.75);
+  margin: 0;
+}
+
+.contact-cards .contact-card {
+  background: linear-gradient(135deg, rgba(23, 43, 76, 0.95), rgba(9, 27, 58, 0.95));
+  border-radius: 16px;
+  padding: 1.75rem 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(92, 168, 255, 0.2);
+  height: 100%;
+  color: #f5f7fb;
+  box-shadow: 0 10px 30px rgba(6, 20, 40, 0.35);
+}
+
+.contact-cards .contact-card i {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: rgba(92, 168, 255, 0.95);
+}
+
+.contact-cards .contact-card h5 {
+  font-weight: 600;
+}
+
+.contact-cards .contact-card p {
+  color: rgba(200, 220, 245, 0.8);
+}
+
+.contact-card-form {
+  background: rgba(255, 255, 255, 0.98);
+  border-radius: 22px;
+  padding: 2.5rem 2.25rem;
+  box-shadow: 0 25px 60px rgba(5, 15, 35, 0.25);
+  border: 1px solid rgba(230, 240, 255, 0.3);
+}
+
+.contact-card-form__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.contact-card-form__header h3 {
+  margin-bottom: 0.35rem;
+  font-weight: 700;
+  color: #0e1f3f;
+}
+
+.contact-card-form__header p {
+  color: rgba(79, 96, 125, 0.75);
+  margin: 0;
+}
+
+.contact-card-form__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #4f8cff, #7cf5d4);
+  color: #ffffff;
+  padding: 0.45rem 0.9rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.contact-card-form__badge i {
+  font-size: 1.1rem;
+}
+
+.contact-card-form label {
+  font-weight: 600;
+  color: #102948;
+  margin-bottom: 0.6rem;
+}
+
+.contact-card-form .form-control {
+  border-radius: 14px;
+  border: 1px solid rgba(150, 170, 200, 0.35);
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.contact-card-form .form-control:focus {
+  border-color: rgba(79, 140, 255, 0.7);
+  box-shadow: 0 0 0 0.2rem rgba(79, 140, 255, 0.18);
+}
+
+.contact-card-form .form-control.is-invalid {
+  border-color: rgba(255, 92, 92, 0.75);
+}
+
+.contact-card-form .invalid-feedback {
+  font-size: 0.85rem;
+}
+
+.contact-form-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: rgba(79, 96, 125, 0.75);
+}
+
+.contact-form-note i {
+  color: rgba(79, 140, 255, 0.85);
+}
+
+@media (max-width: 991.98px) {
+  .contact-title {
+    font-size: 2rem;
+  }
+
+  .contact-card-form {
+    padding: 2rem;
+  }
+
+  .contact-card-form__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .contact-section {
+    padding: 60px 0;
+  }
+
+  .contact-cards .contact-card {
+    padding: 1.5rem;
+  }
+
+  .contact-card-form {
+    padding: 1.75rem 1.5rem;
+  }
+
+  .contact-form-note {
+    align-self: flex-start;
+  }
+}

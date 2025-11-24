@@ -1,0 +1,106 @@
+<section id="services" class="section-padding">
+  <div class="container">
+    <div class="text-center mb-5">
+      <h2 class="display-5 fw-bold mb-3 text-white">خدماتنا</h2>
+      <p class="lead text-white-50">
+        نغطي احتياجات الأمان والشبكات لكل المشاريع - من المنازل إلى الشركات.
+      </p>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="services-grid">
+      <div
+        *ngFor="let service of defaultServices; let i = index"
+        class="service-card"
+        [attr.data-service-id]="service.id"
+      >
+        <div class="service-card-inner">
+          <!-- Service Icon/Image -->
+          <div class="service-icon-container">
+            <div class="service-icon-wrapper">
+              <img
+                src="assets/images/services/{{ service.imageNumber }}.jpg"
+                alt="{{ service.title }}"
+                class="service-icon-image"
+                loading="lazy"
+              >
+              <div class="service-glow-animation"></div>
+            </div>
+          </div>
+
+          <!-- Service Content -->
+          <div class="service-content">
+            <h3 class="service-title">{{ service.title }}</h3>
+            <p class="service-description">{{ service.description }}</p>
+
+            <!-- Action Buttons -->
+            <div class="service-actions">
+              <button
+                class="btn service-details-btn"
+                data-bs-toggle="modal"
+                [attr.data-bs-target]="'#serviceDetailsModal' + service.id"
+              >
+                <i class="fas fa-info-circle me-2"></i>
+                المزيد من التفاصيل
+              </button>
+              <a href="tel:0547023113" class="btn service-contact-btn">
+                <i class="fas fa-phone me-2"></i>
+                تواصل معنا
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Details Modals -->
+    <div *ngFor="let service of defaultServices">
+      <div class="modal fade" [id]="'serviceDetailsModal' + service.id" tabindex="-1" [attr.aria-labelledby]="'serviceDetailsModalLabel' + service.id" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" [id]="'serviceDetailsModalLabel' + service.id">{{ service.title }}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div class="service-detail-card p-4 border rounded shadow-sm">
+                <div class="d-flex align-items-center mb-4">
+                  <img src="assets/images/services/{{ service.imageNumber }}.jpg" alt="{{ service.title }}" class="service-detail-image me-3">
+                  <div>
+                    <h4 class="mb-1 fw-bold">{{ service.title }}</h4>
+                    <p class="text-muted mb-0">{{ service.description }}</p>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <h6 class="fw-bold text-primary mb-3">الأنواع المتاحة:</h6>
+                  <div class="row g-2">
+                    <div *ngFor="let type of service.types" class="col-md-6">
+                      <div class="d-flex align-items-center p-2 bg-light rounded">
+                        <i class="fas fa-check text-success me-2"></i>
+                        <span>{{ type }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div>
+                  <h6 class="fw-bold text-primary mb-3">أهم المزايا:</h6>
+                  <div class="d-flex flex-wrap gap-2">
+                    <span *ngFor="let feature of service.features" class="badge bg-primary px-3 py-2">{{ feature }}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">إغلاق</button>
+              <a href="#contact" class="btn btn-primary" data-bs-dismiss="modal">تواصل معنا</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</section>

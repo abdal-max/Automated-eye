@@ -1,0 +1,71 @@
+.project-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.08) !important;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0,0,0,0.15) !important;
+  border-color: #4f46e5 !important;
+}
+
+.card-img-top {
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.position-relative {
+  overflow: hidden;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.project-actions .btn {
+  font-size: 0.8rem;
+  padding: 0.4rem 0.8rem;
+}
+
+/* تصميم modal */
+.modal-content {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.modal-header {
+  border-bottom: 1px solid #e9ecef;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 12px 12px 0 0;
+}
+
+.modal-header .btn-close {
+  filter: invert(1);
+}
+
+/* تصميم متجاوب */
+@media (max-width: 768px) {
+  .project-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .project-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modal-dialog {
+    margin: 1rem;
+  }
+  
+  .modal-body .row {
+    flex-direction: column;
+  }
+}

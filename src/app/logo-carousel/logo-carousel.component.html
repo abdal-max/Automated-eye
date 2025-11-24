@@ -1,0 +1,24 @@
+<!-- Logo Carousel Component - Static grid layout with transparent background -->
+<section class="logo-carousel-section" aria-label="Company logos showcase">
+  <div class="container">
+    <div class="logo-carousel-wrapper">
+      <!-- Logo Grid Container -->
+      <div class="logo-grid" role="region" aria-label="Logo showcase">
+        <div
+          class="logo-item"
+          *ngFor="let logo of logos; trackBy: trackByFn"
+        >
+          <div class="logo-container">
+            <img
+              [src]="logo.src"
+              [alt]="logo.alt"
+              class="logo-image"
+              loading="lazy"
+              (error)="onImageError($event)"
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
